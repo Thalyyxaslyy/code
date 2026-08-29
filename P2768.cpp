@@ -1,18 +1,11 @@
 #include<iostream>
 #include<cstdio>
-#include<vector>
 #include<algorithm>
-#include<print>
+#include<vector>
+
 typedef long long ll;
 using namespace std;
-ll n,a[101],ans;
 int main(){
     ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
-    cin>>n;
-    for(ll i=1;i<=n;i++){
-        cin>>a[i];
-        if(i>n/2)ans+=a[i];
-    }
-    cout<<ans<<endl;
     return 0;
 }
