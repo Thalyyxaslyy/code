@@ -1,15 +1,10 @@
 #include<iostream>
-#include<cstdio>
-#include<vector>
 #include<algorithm>
+#include<vector>
+#include<cstdio>
 typedef long long ll;
 using namespace std;
-string s,ans;
 int main(){
     ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
-    cin>>s;
-    for(char c:s)ans+=c,ans+='o';
-    ans.pop_back();
-    cout<<ans<<endl;
     return 0;
 }
