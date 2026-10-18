@@ -26,7 +26,7 @@ ll build(ll l,ll r){
 void push_up(ll u){
     nds[u].val=nds[nds[u].ls].val+nds[nds[u].rs].val;
 }
-void add(ll u,ll ul,ll ur,ll c){
+void add(ll u,ll ul,ll ur,ll c){//多次积存LAZY,C不一定为1
     nds[u].val+=(ur-ul+1)*c;
     nds[u].lazy+=c;
 }
@@ -35,7 +35,7 @@ void push_down(ll u,ll ul,ll ur){
     ll mid=(ul+ur)>>1;
     add(nds[u].ls,ul,mid,nds[u].lazy);
     add(nds[u].rs,mid+1,ur,nds[u].lazy);
-    nds[u].lazy=0;
+    nds[u].lazy=0;//LAZY清空
 }
 void update(ll l,ll r,ll u,ll ul,ll ur){
     if(ul>r||ur<l)return;
@@ -69,7 +69,7 @@ int main(){
     head=build(1,m);
     for(ll high=1;high<=n;high++){
         update(lrs[high-1].first,lrs[high-1].second,head,1,m);
-        while(!qst.empty()&&qst.back().h==high){
+        while(!qst.empty()&&qst.back().h==high){//判非空
             ll l=qst.back().l,r=qst.back().r,id=qst.back().id;
             qst.pop_back();
             ans[abs(id)]+=getf11(id)*query(l,r,head,1,m);
